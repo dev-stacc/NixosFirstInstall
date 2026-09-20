@@ -19,6 +19,7 @@
                 inherit specialArgs;
                 modules = [ ./hosts/uefi/default.nix ];
             };
+#remember to change the boot loader grub device to match your system at /hosts/default.nix
             AgnosLEGACY = nixpkgs.lib.nixosSystem {
                 inherit specialArgs;
                 modules = [ ./hosts/legacy/default.nix ];

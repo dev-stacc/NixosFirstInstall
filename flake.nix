@@ -1,0 +1,28 @@
+{
+    description = "Agnos bootstrap hosts";
+
+    inputs = {
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    };
+
+    outputs = {
+        self,
+        nixpkgs,
+        ...
+    } @ inputs :
+    let
+        username = "Agnos";
+        specialArgs = { inherit inputs username; };
+    in {
+        nixosConfigurations = {
+            AgnosUEFI = nixpkgs.lib.nixosSystem {
+                inherit specialArgs;
+                modules = [ ./hosts/uefi/default.nix ];
+            };
+            AgnosLEGACY = nixpkgs.lib.nixosSystem {
+                inherit specialArgs;
+                modules = [ ./hosts/legacy/default.nix ];
+            };
+        };
+    };
+}

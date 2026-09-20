@@ -1,12 +1,9 @@
-{ username, ... } : {
+{ username, authorizedKeys, ... } : {
     users.users.${username} = {
         isNormalUser = true;
-        openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDkKw83ZCeZFAm2c3nmknwC3TaC18QxUSitVmVlVUv6s anastasia@arcturus"
-        ];
+        openssh.authorizedKeys.keys = authorizedKeys;
         extraGroups = [
             "wheel"
-            "networkmanager"
         ];
     };
 

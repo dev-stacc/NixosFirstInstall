@@ -11,8 +11,10 @@
         ...
     } @ inputs :
     let
-        username = "Agnos";
-        specialArgs = { inherit inputs username; };
+        username = "bootstrap";
+        timeZone = "America/Toronto";
+        authorizedKeys = [ ];
+        specialArgs = { inherit inputs username timeZone authorizedKeys; };
     in {
         nixosConfigurations = {
             AgnosUEFI = nixpkgs.lib.nixosSystem {

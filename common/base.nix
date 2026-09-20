@@ -1,11 +1,11 @@
-{ username, ... } : {
+{ username, timeZone, ... } : {
     nix.settings = {
         experimental-features = [ "nix-command" "flakes" ];
-        trusted-users = [ "root" username ];
+        trusted-users = [ username ];
     };
 
     hardware.enableRedistributableFirmware = true;
-    time.timeZone = "America/New_York";
+    time.timeZone = timeZone;
     systemd.network.wait-online.enable = false;
 
     system.stateVersion = "26.05";

@@ -14,7 +14,7 @@
         "xhci_pci"
     ];
     boot.initrd.kernelModules = [ ];
-    boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
+    boot.kernelModules = [ ];
     boot.extraModulePackages = [ ];
 
     fileSystems."/" = {
